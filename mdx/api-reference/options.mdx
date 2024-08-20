@@ -1,0 +1,47 @@
+---
+title: "Options"
+description: "Configuration options for the getHtml function"
+icon: "sliders"
+---
+
+# Options
+
+The `getHtml` function accepts an optional `options` object as its second parameter. This object allows you to customize the behavior of Waterfall-Fetch.
+
+## Options Object
+
+```typescript
+type Options = {
+	set: "cheap" | "js" | null;
+	evalFunction?: OnPageEvaluationFunction;
+};
+```
+
+### Properties
+
+<ParamField body="set" type="string">
+	Specifies the strategy set to use. Can be "cheap", "js", or null (default).
+</ParamField>
+
+<ParamField body="evalFunction" type="function">
+	A custom evaluation function to be executed in the context of the page (only applicable when using Puppeteer).
+</ParamField>
+
+## Usage Example
+
+```javascript
+import getHtml from "waterfall-fetch";
+
+const url = "https://example.com";
+
+const options = {
+	set: "js",
+	evalFunction: async (page) => {
+		return await page.evaluate(() => document.title);
+	},
+};
+
+const result = await getHtml(url, options);
+```
+
+For more information on using custom evaluation functions, see the [Evaluation Functions](/advanced/evaluation-functions) guide.

@@ -8,7 +8,11 @@
 	"colors": {
 		"primary": "#0077B6",
 		"light": "#90E0EF",
-		"dark": "#03045E"
+		"dark": "#03045E",
+		"anchors": {
+			"from": "#0077B6",
+			"to": "#03045E"
+		}
 	},
 	"topbarLinks": [
 		{
@@ -25,33 +29,28 @@
 			"name": "API Reference",
 			"icon": "code",
 			"url": "api-reference"
-		},
-		{
-			"name": "Community",
-			"icon": "discord",
-			"url": "https://discord.gg/your-discord-invite"
 		}
 	],
 	"navigation": [
 		{
 			"group": "Getting Started",
-			"pages": ["introduction", "quickstart"]
+			"pages": ["mdx/introduction", "mdx/quickstart", "mdx/installation"]
 		},
 		{
 			"group": "Core Concepts",
-			"pages": ["concepts/strategies", "concepts/waterfall-approach"]
+			"pages": ["mdx/concepts/strategies", "mdx/concepts/waterfall-approach"]
 		},
 		{
 			"group": "API Reference",
-			"pages": ["api-reference/gethtml", "api-reference/options"]
+			"pages": ["mdx/api-reference/gethtml", "mdx/api-reference/options"]
 		},
 		{
 			"group": "Advanced Usage",
-			"pages": ["advanced/custom-strategies", "advanced/evaluation-functions"]
+			"pages": ["mdx/advanced/custom-strategies", "mdx/advanced/evaluation-functions"]
 		}
 	],
 	"footerSocials": {
 		"github": "https://github.com/andytyler/waterfall-fetch",
-		"twitter": "https://twitter.com/andt_AJT"
+		"twitter": "https://twitter.com/ANDY_AJT"
 	}
 }

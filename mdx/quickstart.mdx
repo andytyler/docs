@@ -1,6 +1,7 @@
 ---
-title: 'Quick Start'
-description: 'Get up and running with Waterfall-Fetch in minutes'
+title: "Quick Start"
+description: "Get up and running with Waterfall-Fetch in minutes"
+icon: "rocket"
 ---
 
 # Quick Start
@@ -30,9 +31,9 @@ pnpm add waterfall-fetch
 Here's a simple example of how to use Waterfall-Fetch:
 
 ```typescript
-import getHtml from 'waterfall-fetch';
+import getHtml from "waterfall-fetch";
 
-const url = 'https://example.com';
+const url = "https://example.com";
 
 // Basic usage
 const result = await getHtml(url);
@@ -41,38 +42,36 @@ const result = await getHtml(url);
 const { html, error, success } = await getHtml(url);
 
 if (success) {
-  console.log(html);
+	console.log(html);
 } else {
-  console.error(error);
+	console.error(error);
 }
 ```
 
-<Tip>
-  Waterfall-Fetch supports destructuring, inspired by the Supabase API, allowing for clean and intuitive usage.
-</Tip>
+<Tip>Waterfall-Fetch supports destructuring, inspired by the Supabase API, allowing for clean and intuitive usage.</Tip>
 
 ## Configuration
 
 To configure Waterfall-Fetch, you can set the following environment variables:
 
 <ParamField body="BROWSER_SERVICE" type="string">
-  The browser service to use (e.g., 'browserless' or 'browserbase')
+	The browser service to use (e.g., 'browserless' or 'browserbase')
 </ParamField>
 
 <ParamField body="BROWSERBASE_API_KEY" type="string">
-  Your Browserbase API key
+	Your Browserbase API key
 </ParamField>
 
 <ParamField body="BROWSERLESS_API_KEY" type="string">
-  Your Browserless API key
+	Your Browserless API key
 </ParamField>
 
 <ParamField body="NODE_ENV" type="string">
-  Set to 'production' for production environments
+	Set to 'production' for production environments
 </ParamField>
 
 <ParamField body="HEADLESS" type="string">
-  Set to 'on' or 'off' to control headless mode
+	Set to 'on' or 'off' to control headless mode
 </ParamField>
 
 For more advanced usage and configuration options, check out our [API Reference](/api-reference/gethtml).

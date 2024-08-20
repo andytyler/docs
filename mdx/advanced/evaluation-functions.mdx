@@ -1,0 +1,81 @@
+---
+title: "Evaluation Functions"
+description: "Using custom evaluation functions with Waterfall-Fetch"
+icon: "function"
+---
+
+# Evaluation Functions
+
+Evaluation functions in Waterfall-Fetch allow you to execute custom JavaScript code in the context of the fetched web page when using the Puppeteer strategy.
+
+## What are Evaluation Functions?
+
+An evaluation function is a user-defined function that takes a `page` object as its parameter. This `page` object represents the current state of the web page being interacted with, allowing you to execute JavaScript within the context of that page.
+
+## Syntax
+
+```typescript
+type OnPageEvaluationFunction = (page: Page) => Promise<any>;
+```
+
+## Usage
+
+You can pass an evaluation function as part of the options object when calling `getHtml`:
+
+```javascript
+import getHtml from "waterfall-fetch";
+
+const url = "https://example.com";
+
+const options = {
+	set: "js",
+	evalFunction: async (page) => {
+		return await page.evaluate(() => {
+			// This code runs in the context of the browser
+			return {
+				title: document.title,
+				metaDescription: document.querySelector('meta[name="description"]')?.content,
+			};
+		});
+	},
+};
+
+const { html, evaluation_result } = await getHtml(url, options);
+
+console.log(evaluation_result); // { title: '...', metaDescription: '...' }
+```
+
+## Use Cases
+
+Evaluation functions are particularly useful for:
+
+1. Extracting specific data from the page
+2. Interacting with the page (e.g., clicking buttons, filling forms)
+3. Waiting for dynamic content to load
+4. Bypassing client-side rendering issues
+
+## Example: Infinite Scroll
+
+Here's an example of using an evaluation function to handle infinite scroll:
+
+```javascript
+const options = {
+	set: "js",
+	evalFunction: async (page) => {
+		return await page.evaluate(async () => {
+			const items = [];
+			while (items.length < 100) {
+				items.push(...document.querySelectorAll(".item"));
+				window.scrollTo(0, document.body.scrollHeight);
+				await new Promise((resolve) => setTimeout(resolve, 1000));
+			}
+			return items.slice(0, 100).map((item) => item.textContent);
+		});
+	},
+};
+
+const { evaluation_result } = await getHtml("https://infinite-scroll-example.com", options);
+console.log(evaluation_result); // Array of 100 items
+```
+
+By leveraging evaluation functions, you can extend Waterfall-Fetch's capabilities to handle complex scraping scenarios and extract precisely the data you need.
