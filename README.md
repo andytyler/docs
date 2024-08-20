@@ -1,32 +1,59 @@
-# Mintlify Starter Kit
+# Waterfall-Fetch Documentation
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+Welcome to the official documentation for Waterfall-Fetch, a powerful and flexible utility for web scraping and HTML fetching. This repository houses the documentation for the `getHtml` function and related concepts.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+## About Waterfall-Fetch
 
-### Development
+Waterfall-Fetch is a robust solution for retrieving HTML content from websites, even when faced with various challenges. It employs a cascading retry approach with multiple strategies, ensuring optimal content retrieval.
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+## Key Features
 
-```
-npm i -g mintlify
-```
+- Multiple fetching strategies (Axios, Node-fetch, Puppeteer)
+- Waterfall approach for optimal content retrieval
+- Stealth mode using Puppeteer for JavaScript-heavy sites
+- Customizable strategy prioritization
+- Built-in error handling
+- TypeScript support
 
-Run the following command at the root of your documentation (where mint.json is)
+## Documentation Structure
 
-```
-mintlify dev
-```
+Our documentation is organized as follows:
 
-### Publishing Changes
+1. **Getting Started**
+   - Introduction
+   - Quick Start
+   - Installation
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+2. **Core Concepts**
+   - Fetching Strategies
+   - Waterfall Approach
 
-#### Troubleshooting
+3. **API Reference**
+   - getHtml Function
+   - Options
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `mint.json`
+4. **Advanced Usage**
+   - Custom Strategies
+   - Evaluation Functions
+
+## Contributing
+
+We welcome contributions to improve this documentation. If you find any issues or have suggestions for improvement, please open an issue or submit a pull request.
+
+## Building the Documentation
+
+This documentation is built using [Mintlify](https://mintlify.com/). To run the documentation locally:
+
+1. Install Mintlify: `npm install -g mintlify`
+2. Run the development server: `mintlify dev`
+
+## License
+
+This documentation is licensed under the ISC License. See the LICENSE file for details.
+
+## Support
+
+If you need help or have any questions, please open an issue on our GitHub repository.
+
+---
+Built with Mintlify. Powered by Waterfall-Fetch.
