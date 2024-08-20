@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Waterfall-Fetch"
+title: "Introduction"
 description: "A powerful and flexible utility for web scraping and HTML fetching"
 icon: "water"
 ---
@@ -9,10 +9,10 @@ icon: "water"
 Waterfall-Fetch is a powerful and flexible utility for web scraping and HTML fetching, employing a cascading retry approach with multiple strategies. It's designed to provide a robust solution for retrieving HTML content from websites, even when faced with various challenges.
 
 <CardGroup cols={2}>
-	<Card title="Quick Start" icon="play" href="/quickstart">
+	<Card title="Quick Start" icon="play" href="/mdx/quickstart">
 		Get up and running with Waterfall-Fetch in minutes
 	</Card>
-	<Card title="API Reference" icon="code" href="/api-reference/gethtml">
+	<Card title="API Reference" icon="code" href="/mdx/api-reference/gethtml">
 		Explore the Waterfall-Fetch API
 	</Card>
 </CardGroup>
@@ -28,12 +28,26 @@ Waterfall-Fetch is a powerful and flexible utility for web scraping and HTML fet
 	<Accordion title="TypeScript Support">Fully typed for enhanced developer experience and code quality</Accordion>
 </AccordionGroup>
 
-## Why Waterfall-Fetch?
+## How Waterfall-Fetch Works
 
-Waterfall-Fetch employs a smart, cascading approach to web scraping and HTML retrieval. This intelligent, tiered strategy ensures that you're always using the most appropriate and efficient method for each unique scraping scenario, balancing speed, cost, and accuracy.
+```mermaid
+flowchart TD
+    A[Start] --> B{Try Axios}
+    B -->|Success| C[Return HTML]
+    B -->|Fail| D{Try Node-fetch}
+    D -->|Success| C
+    D -->|Fail| E{Try Puppeteer}
+    E -->|Success| C
+    E -->|Fail| F[Return Error]
+```
 
-<Frame>
-	<img src="/images/waterfall-fetch-flow.png" alt="Waterfall-Fetch Flow" />
-</Frame>
+This diagram illustrates the cascading approach of Waterfall-Fetch:
 
-Ready to dive in? Check out our [Quick Start](/quickstart) guide to begin your journey with Waterfall-Fetch!
+1. It starts with the fastest method (Axios).
+2. If that fails, it moves to Node-fetch.
+3. If Node-fetch fails, it uses Puppeteer as a last resort.
+4. If all methods fail, it returns an error.
+
+This intelligent, tiered strategy ensures that you're always using the most appropriate and efficient method for each unique scraping scenario, balancing speed, cost, and accuracy.
+
+Ready to dive in? Check out our [Quick Start](/mdx/quickstart) guide to begin your journey with Waterfall-Fetch!
