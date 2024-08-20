@@ -1,0 +1,65 @@
+---
+title: "Custom Strategies"
+description: "Learn how to create and use custom fetching strategies"
+---
+
+# Custom Strategies
+
+Waterfall-Fetch allows you to create and use custom fetching strategies to tailor the HTML retrieval process to your specific needs.
+
+## Creating a Custom Strategy
+
+A custom strategy is a function that follows the `FetchStrategyFunction` type:
+
+```typescript
+type FetchStrategyFunction = (url: string, evalFunction?: OnPageEvaluationFunction) => Promise<StrategyResponse>;
+```
+
+Here's an example of a custom strategy:
+
+```typescript
+import axios from "axios";
+
+async function customAxiosStrategy(url: string): Promise<StrategyResponse> {
+	const strategy = { name: "custom-axios", cost: 0 };
+	try {
+		const response = await axios.get(url, {
+			headers: {
+				"User-Agent": "Custom User Agent",
+				// Add other custom headers here
+			},
+		});
+		return {
+			success: true,
+			strategy,
+			html: response.data,
+			error: null,
+			status: response.status,
+		};
+	} catch (error) {
+		return {
+			success: false,
+			strategy,
+			html: null,
+			error,
+			status: error.response?.status || null,
+		};
+	}
+}
+```
+
+## Using Custom Strategies
+
+To use custom strategies, pass them as an array to the `set` option when calling `getHtml`:
+
+```typescript
+import getHtml, { fetchWithNodeFetch, fetchWithStealthPuppeteer } from "waterfall-fetch";
+
+const url = "https://example.com";
+
+const customSet = [customAxiosStrategy, fetchWithNodeFetch, fetchWithStealthPuppeteer];
+
+const result = await getHtml(url, { set: customSet });
+```
+
+This allows you to define the order and composition of strategies used in the waterfall approach.

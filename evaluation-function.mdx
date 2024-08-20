@@ -1,0 +1,50 @@
+---
+title: "Custom Evaluation Functions"
+description: "Learn how to use custom evaluation functions with Puppeteer"
+---
+
+# Custom Evaluation Functions
+
+Waterfall-Fetch allows you to pass custom evaluation functions to be executed in the context of a web page when using Puppeteer. This is particularly useful for extracting specific data or interacting with JavaScript-heavy websites.
+
+## Syntax
+
+A custom evaluation function has the following signature:
+
+```typescript
+type OnPageEvaluationFunction = (page: Page) => Promise<any>;
+```
+
+Where `Page` is the Puppeteer `Page` object.
+
+## Example Usage
+
+Here's an example of using a custom evaluation function to extract the title of a page:
+
+```typescript
+import getHtml from "waterfall-fetch";
+
+const url = "https://example.com";
+
+const { html, evaluation_result } = await getHtml(url, {
+	set: "js",
+	evalFunction: async (page) => {
+		return await page.evaluate(() => document.title);
+	},
+});
+
+console.log("Page Title:", evaluation_result);
+```
+
+This function will be executed in the context of the web page after it has been loaded by Puppeteer.
+
+## Use Cases
+
+Custom evaluation functions are powerful tools for:
+
+1. Extracting dynamic content
+2. Interacting with JavaScript-rendered elements
+3. Performing complex scraping tasks
+4. Automating user interactions on a page
+
+For more advanced examples, see the [Examples](/examples/custom-strategies) section.

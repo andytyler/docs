@@ -1,0 +1,48 @@
+---
+title: 'Fetching Strategies'
+description: 'Understanding the different strategies used by Waterfall-Fetch'
+---
+
+# Fetching Strategies
+
+Waterfall-Fetch employs multiple strategies to retrieve HTML content, ensuring optimal performance and reliability. This page explains the different strategies and how they work together.
+
+## Available Strategies
+
+1. **Axios**: A fast and lightweight HTTP client
+2. **Node-fetch**: A simple and modern fetch API for Node.js
+3. **Stealth Puppeteer**: A headless browser for JavaScript-heavy sites
+
+## Strategy Sets
+
+Waterfall-Fetch uses two predefined strategy sets:
+
+### 1. Cheap Set
+
+Optimized for cost-effectiveness and speed:
+
+1. Axios
+2. Node-fetch
+3. Puppeteer (as a last resort)
+
+### 2. JS Set
+
+Designed for JavaScript-heavy websites:
+
+1. Puppeteer (with stealth mode)
+2. Axios (as a fallback)
+3. Node-fetch (as a final attempt)
+
+## Waterfall Approach
+
+The waterfall method starts with the fastest and most cost-effective strategy to fetch the HTML of your target URL. If the initial attempt fails, Waterfall-Fetch seamlessly transitions to more robust methods, ensuring you ultimately receive the HTML from the target URL.
+
+## Customizing Strategies
+
+You can customize the strategy set used by Waterfall-Fetch. Check out the [Advanced Usage](/advanced/custom-strategies) section to learn how to create and use custom strategy sets.
+
+## Next Steps
+
+- Learn how to use different strategy sets in the [Quick Start](/quickstart) guide
+- Explore the [API Reference](/api-reference/gethtml) for detailed information on the `getHtml` function
+- Discover how to create [Custom Strategies](/advanced/custom-strategies) for advanced use cases

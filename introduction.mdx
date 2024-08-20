@@ -1,71 +1,38 @@
 ---
-title: Introduction
-description: 'Welcome to the home of your new documentation'
+title: "Introduction to Waterfall-Fetch"
+description: "A powerful and flexible utility for web scraping and HTML fetching"
 ---
 
-<img
-  className="block dark:hidden"
-  src="/images/hero-light.svg"
-  alt="Hero Light"
-/>
-<img
-  className="hidden dark:block"
-  src="/images/hero-dark.svg"
-  alt="Hero Dark"
-/>
+# Waterfall-Fetch
 
-## Setting up
-
-The first step to world-class documentation is setting up your editing environments.
+Waterfall-Fetch is a powerful and flexible utility for web scraping and HTML fetching, employing a cascading retry approach with multiple strategies. It's designed to provide a robust solution for retrieving HTML content from websites, even when faced with various challenges.
 
 <CardGroup cols={2}>
-  <Card
-    title="Edit Your Docs"
-    icon="pen-to-square"
-    href="https://mintlify.com/docs/quickstart"
-  >
-    Get your docs set up locally for easy development
-  </Card>
-  <Card
-    title="Preview Changes"
-    icon="image"
-    href="https://mintlify.com/docs/development"
-  >
-    Preview your changes before you push to make sure they're perfect
-  </Card>
+	<Card title="Quick Start" icon="play" href="/quickstart">
+		Get up and running with Waterfall-Fetch in minutes
+	</Card>
+	<Card title="API Reference" icon="code" href="/api-reference/gethtml">
+		Explore the Waterfall-Fetch API
+	</Card>
 </CardGroup>
 
-## Make it yours
+## Key Features
 
-Update your docs to your brand and add valuable content for the best user conversion.
+<AccordionGroup>
+	<Accordion title="Multiple Fetching Strategies">Utilizes Axios, Node-fetch, and Puppeteer for optimal content retrieval</Accordion>
+	<Accordion title="Waterfall Approach">Intelligently cascades through strategies to ensure successful fetching</Accordion>
+	<Accordion title="Stealth Mode">Employs Puppeteer for JavaScript-heavy sites, enhancing scraping capabilities</Accordion>
+	<Accordion title="Customizable Strategy Prioritization">Allows you to tailor the fetching process to your specific needs</Accordion>
+	<Accordion title="Built-in Error Handling">Robust error management for reliable scraping operations</Accordion>
+	<Accordion title="TypeScript Support">Fully typed for enhanced developer experience and code quality</Accordion>
+</AccordionGroup>
 
-<CardGroup cols={2}>
-  <Card
-    title="Customize Style"
-    icon="palette"
-    href="https://mintlify.com/docs/settings/global"
-  >
-    Customize your docs to your company's colors and brands
-  </Card>
-  <Card
-    title="Reference APIs"
-    icon="code"
-    href="https://mintlify.com/docs/api-playground/openapi"
-  >
-    Automatically generate endpoints from an OpenAPI spec
-  </Card>
-  <Card
-    title="Add Components"
-    icon="screwdriver-wrench"
-    href="https://mintlify.com/docs/components/accordion"
-  >
-    Build interactive features and designs to guide your users
-  </Card>
-  <Card
-    title="Get Inspiration"
-    icon="stars"
-    href="https://mintlify.com/customers"
-  >
-    Check out our showcase of our favorite documentation
-  </Card>
-</CardGroup>
+## Why Waterfall-Fetch?
+
+Waterfall-Fetch employs a smart, cascading approach to web scraping and HTML retrieval. This intelligent, tiered strategy ensures that you're always using the most appropriate and efficient method for each unique scraping scenario, balancing speed, cost, and accuracy.
+
+<Frame>
+	<img src="/images/waterfall-fetch-flow.png" alt="Waterfall-Fetch Flow" />
+</Frame>
+
+Ready to dive in? Check out our [Quick Start](/quickstart) guide to begin your journey with Waterfall-Fetch!

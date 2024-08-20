@@ -1,33 +1,65 @@
 ---
-title: 'Introduction'
-description: 'Example section for showcasing API endpoints'
+title: "getHtml Function"
+description: "Detailed API reference for the main getHtml function"
 ---
 
-<Note>
-  If you're not looking to build API reference documentation, you can delete
-  this section by removing the api-reference folder.
-</Note>
+# getHtml Function
 
-## Welcome
+The `getHtml` function is the core of the Waterfall-Fetch library. It fetches HTML content from a specified URL using various strategies.
 
-There are two ways to build API documentation: [OpenAPI](https://mintlify.com/docs/api-playground/openapi/setup) and [MDX components](https://mintlify.com/docs/api-playground/mdx/configuration). For the starter kit, we are using the following OpenAPI specification.
+## Syntax
 
-<Card
-  title="Plant Store Endpoints"
-  icon="leaf"
-  href="https://github.com/mintlify/starter/blob/main/api-reference/openapi.json"
->
-  View the OpenAPI specification file
-</Card>
-
-## Authentication
-
-All API endpoints are authenticated using Bearer tokens and picked up from the specification file.
-
-```json
-"security": [
-  {
-    "bearerAuth": []
-  }
-]
+```typescript
+async function getHtml(
+	url: string,
+	options?: {
+		set: "cheap" | "js" | null;
+		evalFunction?: OnPageEvaluationFunction;
+	}
+): Promise<HtmlResponse>;
 ```
+
+## Parameters
+
+-   `url` (string): The URL to fetch HTML content from.
+-   `options` (object, optional):
+    -   `set` ("cheap" | "js" | null): The strategy set to use. Default is null (uses all strategies).
+    -   `evalFunction` (function, optional): A custom evaluation function for use with Puppeteer.
+
+## Return Value
+
+Returns a Promise that resolves to an `HtmlResponse` object:
+
+```typescript
+type HtmlResponse = {
+	success: boolean;
+	html: string | null;
+	root?: NodeHTMLElement;
+	evaluation_result?: any;
+	strategy: FetchStrategy;
+	error?: Error | null | string | unknown;
+	status?: number | string | null;
+};
+```
+
+## Example Usage
+
+```typescript
+import getHtml from "waterfall-fetch";
+
+const url = "https://example.com";
+
+// Basic usage
+const result = await getHtml(url);
+
+// Using the 'cheap' strategy set
+const { html, error, success } = await getHtml(url, { set: "cheap" });
+
+if (success) {
+	console.log(html);
+} else {
+	console.error(error);
+}
+```
+
+For more advanced usage examples, see the [Advanced Usage](/advanced/custom-strategies) section.

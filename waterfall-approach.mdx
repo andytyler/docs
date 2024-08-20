@@ -1,0 +1,50 @@
+---
+title: "Waterfall Approach"
+description: "Understanding the waterfall method used by Waterfall-Fetch"
+---
+
+# Waterfall Approach
+
+The waterfall approach is a key feature of Waterfall-Fetch that ensures reliable and efficient HTML retrieval. This page explains how the waterfall method works and its benefits.
+
+## How It Works
+
+1. **Start with the Fastest**: The waterfall method begins with the quickest and most cost-effective strategy to fetch the HTML of your target URL.
+
+2. **Graceful Fallback**: If the initial attempt fails, Waterfall-Fetch automatically moves to the next strategy in the set.
+
+3. **Escalation**: The process continues, moving through increasingly robust methods until successful retrieval or all strategies are exhausted.
+
+## Benefits of the Waterfall Approach
+
+1. **Optimized Performance**: By starting with faster methods, most requests are completed quickly.
+
+2. **Increased Reliability**: Multiple fallback options ensure a higher success rate for HTML retrieval.
+
+3. **Cost-Effective**: Using more expensive methods (like Puppeteer) only when necessary helps manage resources efficiently.
+
+4. **Flexibility**: The approach adapts to different types of websites, from simple static pages to complex, JavaScript-heavy applications.
+
+## Strategy Progression
+
+Here's how the waterfall typically progresses in the default "cheap" set:
+
+1. **Axios**: Fast and lightweight, suitable for most static websites.
+2. **Node-fetch**: A good alternative if Axios encounters issues.
+3. **Puppeteer**: Used as a last resort for complex, dynamic websites.
+
+For JavaScript-heavy sites, the "js" set is used, which prioritizes Puppeteer:
+
+1. **Puppeteer (with stealth mode)**: Handles complex, dynamic content effectively.
+2. **Axios**: Fallback for simpler content if Puppeteer fails.
+3. **Node-fetch**: Final attempt if both previous methods fail.
+
+## Customizing the Waterfall
+
+You can customize the waterfall approach by creating your own strategy sets. This allows you to tailor the fetching process to your specific needs. Learn more in the [Custom Strategies](/advanced/custom-strategies) section.
+
+## Next Steps
+
+-   Explore different [Fetching Strategies](/strategies) used in Waterfall-Fetch
+-   Learn how to use strategy sets in the [Quick Start](/quickstart) guide
+-   Dive into [Custom Strategies](/advanced/custom-strategies) for advanced usage
