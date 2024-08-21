@@ -1,6 +1,6 @@
 ---
 title: "Options"
-description: "Configuration options for the getHtml function"
+description: "Passing in options to getHtml() function."
 icon: "sliders"
 ---
 
@@ -8,7 +8,16 @@ icon: "sliders"
 
 The `getHtml` function accepts an optional `options` object as its second parameter. This object allows you to customize the behavior of Waterfall-Fetch.
 
+```typescript
+const result = await getHtml("https://example.com", options);
+```
+
 ## Options Object
+
+Options is an optional parameter you can pass, you can define:
+
+-   `set` The set of strategies that will be used, order sensitive, 
+-   `evalFunction`
 
 ```typescript
 type Options = {

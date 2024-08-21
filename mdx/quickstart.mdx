@@ -50,28 +50,18 @@ if (success) {
 
 <Tip>Waterfall-Fetch supports destructuring, inspired by the Supabase API, allowing for clean and intuitive usage.</Tip>
 
-## Configuration
+### Environment Variables
 
-To configure Waterfall-Fetch, you can set the following environment variables:
+All of these are optional and getHtml will work without them all.
+If you wish to use a remote headless browser service then simply include the API Key and all puppeteer requests will connect to this service.
+Only _BROWSERLESS_ is currently supported.
 
-<ParamField body="BROWSER_SERVICE" type="string">
-	The browser service to use (e.g., 'browserless' or 'browserbase')
-</ParamField>
-
-<ParamField body="BROWSERBASE_API_KEY" type="string">
-	Your Browserbase API key
-</ParamField>
-
-<ParamField body="BROWSERLESS_API_KEY" type="string">
-	Your Browserless API key
-</ParamField>
-
-<ParamField body="NODE_ENV" type="string">
-	Set to 'production' for production environments
-</ParamField>
-
-<ParamField body="HEADLESS" type="string">
-	Set to 'on' or 'off' to control headless mode
-</ParamField>
+```text
+HEADLESS  // Optional
+NODE_ENV  // Optional
+BROWSERLESS_API_KEY  // Optional
+BROWSERBASE_API_KEY  // Optional //unsupported
+BROWSER_SERVICE  // Optional
+```
 
 For more advanced usage and configuration options, check out our [API Reference](/mdx/api-reference/gethtml).

@@ -1,0 +1,78 @@
+---
+title: "Custom Strategy Sets"
+description: "Learn how to define and use custom strategy sets in Waterfall-Fetch"
+icon: "gear"
+---
+
+# Custom Strategy Sets
+
+Waterfall-Fetch allows you to customize the order and selection of strategies used to fetch HTML content. This advanced feature gives you fine-grained control over the fetching process, allowing you to optimize for your specific use case.
+
+## Built-in Strategy Sets
+
+By default, Waterfall-Fetch comes with two built-in strategy sets:
+
+1. **Cheap Set**: Optimized for cost-effectiveness and speed
+
+    - Axios
+    - Node-fetch
+    - Puppeteer (as a last resort)
+
+2. **JS Set**: Designed for JavaScript-heavy websites (slower, but more accurate)
+    - Puppeteer (with stealth mode)
+    - Axios (as a fallback)
+    - Node-fetch (as a final attempt)
+
+## Using Built-in Sets
+
+To use a built-in set, you can specify it in the `options` parameter of the `getHtml` function:
+
+```typescript
+import getHtml from "waterfall-fetch";
+
+const url = "https://example.com";
+
+// Using the 'cheap' set
+const result1 = await getHtml(url, { set: "cheap" });
+
+// Using the 'js' set
+const result2 = await getHtml(url, { set: "js" });
+```
+
+## Custom Strategy Sets
+
+You can create your own custom strategy set by passing an array of strategy functions to the `set` option. This allows you to prioritize strategies based on your specific needs.
+
+To create a custom set:
+
+1. Import the strategy functions you want to use
+2. Create an array with your desired order of strategies
+3. Pass this array to the `set` option
+
+Here's an example:
+
+```typescript
+import getHtml, { fetchWithAxios, fetchWithNodeFetch, fetchWithStealthPuppeteer } from "waterfall-fetch";
+
+const url = "https://example.com";
+
+// Define a custom set of strategies
+const customSet = [fetchWithNodeFetch, fetchWithAxios, fetchWithStealthPuppeteer];
+
+// Use the custom set
+const result = await getHtml(url, { set: customSet });
+
+console.log(result.html);
+console.log(result.strategy.name); // Logs the name of the successful strategy
+```
+
+## Strategy Order and Fallback Behavior
+
+The order of strategies in your custom set is crucial:
+
+1. Strategies are attempted in the order they appear in the array.
+2. If a strategy fails, Waterfall-Fetch moves to the next strategy in the array.
+3. If all strategies fail, Waterfall-Fetch will throw an error.
+4. You can include the same strategy multiple times in the array, which can be useful for retrying a strategy with different options or configurations.
+
+By carefully crafting your custom strategy set, you can optimize the fetching process for your specific use case and improve the accuracy and efficiency of your HTML fetching.

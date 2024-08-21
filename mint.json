@@ -41,12 +41,12 @@
 			"pages": ["mdx/concepts/strategies", "mdx/concepts/waterfall-approach"]
 		},
 		{
-			"group": "API Reference",
-			"pages": ["mdx/api-reference/gethtml", "mdx/api-reference/options"]
+			"group": "User Guides",
+			"pages": ["mdx/api-reference/gethtml", "mdx/api-reference/options", "mdx/api-reference/env"]
 		},
 		{
 			"group": "Advanced Usage",
-			"pages": ["mdx/advanced/custom-strategies", "mdx/advanced/evaluation-functions"]
+			"pages": ["mdx/advanced/custom-strategies", "mdx/advanced/evaluation-functions", "mdx/advanced/strategy-sets"]
 		}
 	],
 	"footerSocials": {
