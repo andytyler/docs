@@ -46,7 +46,7 @@
 		},
 		{
 			"group": "Advanced Usage",
-			"pages": ["mdx/advanced/custom-strategies", "mdx/advanced/evaluation-functions", "mdx/advanced/strategy-sets"]
+			"pages": ["mdx/advanced/custom-strategies", "mdx/advanced/strategy-sets", "mdx/advanced/evaluation-functions"]
 		}
 	],
 	"footerSocials": {
