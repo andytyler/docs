@@ -47,13 +47,13 @@ This documentation is built using [Mintlify](https://mintlify.com/). To run the 
 1. Install Mintlify: `npm install -g mintlify`
 2. Run the development server: `mintlify dev`
 
-## License
+## 📝 License
 
-This documentation is licensed under the ISC License. See the LICENSE file for details.
+This project is [MIT](https://opensource.org/licenses/MIT) licensed.
 
 ## Support
 
 If you need help or have any questions, please open an issue on our GitHub repository.
 
 ---
-Built with Mintlify. Powered by Waterfall-Fetch.
+Built with Mintlify. 
