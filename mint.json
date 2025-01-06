@@ -6,18 +6,18 @@
 	},
 	"favicon": "/favicon.png",
 	"colors": {
-		"primary": "#0077B6",
+		"primary": "#00B4D8",
 		"light": "#90E0EF",
-		"dark": "#03045E",
+		"dark": "#480CA8",
 		"anchors": {
-			"from": "#0077B6",
-			"to": "#03045E"
+			"from": "#00B4D8",
+			"to": "#480CA8"
 		}
 	},
 	"topbarLinks": [
 		{
 			"name": "GitHub",
-			"url": "https://github.com/andytyler/waterfall-fetch"
+			"url": "https://github.com/andytyler/gethtml"
 		}
 	],
 	"topbarCtaButton": {
@@ -50,7 +50,7 @@
 		}
 	],
 	"footerSocials": {
-		"github": "https://github.com/andytyler/waterfall-fetch",
+		"github": "https://github.com/andytyler/gethtml",
 		"twitter": "https://twitter.com/ANDY_AJT"
 	}
 }
